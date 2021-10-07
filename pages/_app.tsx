@@ -1,13 +1,12 @@
-import { HelloWorld } from "../src/components/HelloWorld";
-import "../public/css/styles.css";
 import React from "react";
+import type { AppProps } from 'next/app'
+import "../public/css/styles.scss";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-function HomePage() {
-  return (
-    <React.StrictMode>
-      <HelloWorld />
-    </React.StrictMode>
-  );
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
 }
+export default MyApp
 
-export default HomePage;
