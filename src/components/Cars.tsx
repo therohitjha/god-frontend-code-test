@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
 import { base_url } from "../../public/api/Services";
-import { carTypes } from "../../types/types";
+import { CarTypes } from "../../types/types";
 import Link from "next/link";
 import Slider from "react-slick";
-import Image from "next/image";
 import { settings } from "../../config/SliderConfig";
 import Header from "./Header";
+import Img from './Img'
 
 export default function Cars() {
-  const [cars, setCars] = useState<carTypes[]>([]);
+  const [cars, setCars] = useState<CarTypes[]>([]);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -35,14 +35,14 @@ export default function Cars() {
       <div className="cars-container">
         <Slider ref={ref} {...settings}>
           {cars.length &&
-            cars.map((e: carTypes) => (
+            cars.map((e: CarTypes) => (
               <div key={e.id}>
                 <span className="body-type">{e.bodyType}</span>
                 <div className="modal-type-name">
                   <span className="modal-name">{e.modelName}</span>{" "}
                   <span className="modal-type">{e.modelType}</span>
                 </div>
-                <Image
+                <Img
                   src={`${base_url}${e.imageUrl}`}
                   alt={e.modelName}
                   layout="responsive"
@@ -67,7 +67,7 @@ export default function Cars() {
                     <div className="learn-link">
                       <span>Learn </span>
                       <span>
-                        <Image
+                        <Img
                           src="/images/chevron-small.svg"
                           alt={"chevron_small"}
                           width={10}
@@ -92,7 +92,7 @@ export default function Cars() {
                     <div className="shop-link">
                       <span>Shop </span>
                       <span>
-                        <Image
+                        <Img
                           src="/images/chevron-small.svg"
                           alt={"chevron_small"}
                           width={10}
@@ -107,7 +107,7 @@ export default function Cars() {
         </Slider>
         <div className='slider-button-container'>
           <div onClick={handlePrevSlider} className='prev-slider'>
-            <Image
+            <Img
               src="/images/chevron-circled.svg"
               alt={"chevron_circled"}
               width={40}
@@ -115,7 +115,7 @@ export default function Cars() {
             />
           </div>
           <div onClick={handleNextSlider} style={{cursor:'pointer'}}>
-            <Image
+            <Img
               src="/images/chevron-circled.svg"
               alt={"chevron_circled"}
               width={40}

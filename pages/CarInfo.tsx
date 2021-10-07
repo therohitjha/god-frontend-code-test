@@ -1,8 +1,9 @@
-import Image from "next/image";
 import Header from "../src/components/Header";
-
-export default function CarInfo({ data }: { data: any }) {
+import Img from "../src/components/Img";
+import { CarInfoTypes } from "../types/types";
+export default function CarInfo({ data }: { data: CarInfoTypes | any }) {
   const { body, name, src, type } = data;
+  
   return (
     <>
       <Header />
@@ -17,7 +18,7 @@ export default function CarInfo({ data }: { data: any }) {
           <span className="modal-name">{name}</span>{" "}
           <span className="modal-type">{type}</span>
         </div>
-        <Image src={src} width={800} height={500} alt={name} />
+        <Img src={src} width={800} height={500} alt={name} />
       </div>
     </>
   );
