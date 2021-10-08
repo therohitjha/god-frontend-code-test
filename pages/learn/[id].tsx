@@ -6,7 +6,6 @@ const Learn = ({ data }: { data: CarInfoTypes }) => {
 };
 
 Learn.getInitialProps = async function (props: any) {
-  console.log("rohit",props);
   
   return {
     data: props.query,
