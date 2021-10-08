@@ -1,7 +1,7 @@
-import Header from "../src/components/Header";
-import Img from "../src/components/Img";
-import { CarInfoTypes } from "../types/types";
-import { base_url } from "../public/api/Services";
+import Header from "./Header";
+import Img from "./Img";
+import { CarInfoTypes } from "../../types/types";
+import { base_url } from "../../public/api/Services";
 export default function CarInfo({ data }: { data: CarInfoTypes | any }) {
   const {
     body,

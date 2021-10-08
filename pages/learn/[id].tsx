@@ -1,4 +1,4 @@
-import CarInfo from "../CarInfo";
+import CarInfo from "../../src/components/CarInfo";
 import { CarInfoTypes } from "../../types/types";
 
 const Learn = ({ data }: { data: CarInfoTypes }) => {

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import CarInfo from "../CarInfo";
+import CarInfo from "../../src/components/CarInfo";
 
 export default function Shop() {
   const router = useRouter();
