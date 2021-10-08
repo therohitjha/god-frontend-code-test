@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { base_url } from "../../public/api/Services";
-import { CarTypes } from "../../types/types";
+import { CarTypes, Next } from "../../types/types";
 import Link from "next/link";
 import Slider from "react-slick";
 import { settings } from "../../config/SliderConfig";
@@ -11,7 +11,7 @@ export default function Cars() {
   const [cars, setCars] = useState<CarTypes[]>([]);
   const [filterOption, setFilterOption] = useState<string[]>([]);
   const [filter, setFilter] = useState<string>("");
-  const ref = useRef(null);
+  const ref = useRef<Next | null>(null);
 
   useEffect(() => {
     fetch(`${base_url}/api/cars.json`)
@@ -159,11 +159,7 @@ export default function Cars() {
             />
           </div>
         </div>
-        {!cars.length && (
-          <div>
-            Something Went Wrong, Please Try Again!
-          </div>
-        )}
+        {!cars.length && <div>Something Went Wrong, Please Try Again!</div>}
       </div>
     </>
   );

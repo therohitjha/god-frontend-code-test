@@ -22,3 +22,8 @@ height:number,
 layout?:string,
 objectFit?:string
 }
+
+export type Next = {
+  slickNext: any;
+  slickPrev: any;
+}
