@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { base_url } from "../../public/api/Services";
-import { CarTypes, Next } from "../../types/types";
+import { CarTypes } from "../../types/types";
 import Link from "next/link";
 import Slider from "react-slick";
 import { settings } from "../../config/SliderConfig";
@@ -11,7 +11,7 @@ export default function Cars() {
   const [cars, setCars] = useState<CarTypes[]>([]);
   const [filterOption, setFilterOption] = useState<string[]>([]);
   const [filter, setFilter] = useState<string>("");
-  const ref = useRef<Next | null>(null);
+  const ref = useRef<Slider>(null);
 
   useEffect(() => {
     fetch(`${base_url}/api/cars.json`)

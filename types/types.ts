@@ -19,11 +19,6 @@ src:string,
 alt:string,
 width:number,
 height:number,
-layout?:string,
-objectFit?:string
-}
-
-export type Next = {
-  slickNext: any;
-  slickPrev: any;
+layout?:"fixed" | "responsive" | "fill" | "intrinsic" | undefined,
+objectFit?: "fill"|"contain"|"cover"
 }
