@@ -7,8 +7,8 @@ export default function Img({
   alt,
   width,
   height,
-  layout = "responsive",
-  objectFit = "contain",
+  layout = undefined,
+  objectFit = undefined,
 }: ImageType) {
 
   return (

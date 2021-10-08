@@ -6,19 +6,19 @@ export interface CarTypes {
   modelType: string;
 }
 
-export interface CarInfoTypes{
-  id?:string,
-  body:string,
-  name:string,
-  type:string,
-  src:string
+export interface CarInfoTypes {
+  id?: string;
+  body: string;
+  name: string;
+  type: string;
+  src: string;
 }
 
-export interface ImageType{
-src:string,
-alt:string,
-width:number,
-height:number,
-layout?:"fixed" | "responsive" | "fill" | "intrinsic" | undefined,
-objectFit?: "fill"|"contain"|"cover"
+export interface ImageType {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  layout?: "responsive" | undefined;
+  objectFit?: "contain" | undefined;
 }
