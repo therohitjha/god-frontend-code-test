@@ -1,10 +1,16 @@
-import { useRouter } from "next/router";
 import CarInfo from "../CarInfo";
+import { CarInfoTypes } from "../../types/types";
 
-const Learn = () => {
-  const router = useRouter();
+const Learn = ({ data }: { data: CarInfoTypes }) => {
+  return <CarInfo data={data} />;
+};
 
-  return <CarInfo data={router.query} />;
+Learn.getInitialProps = async function (props: any) {
+  console.log("rohit",props);
+  
+  return {
+    data: props.query,
+  };
 };
 
 export default Learn;

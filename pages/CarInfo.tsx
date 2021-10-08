@@ -1,9 +1,15 @@
 import Header from "../src/components/Header";
 import Img from "../src/components/Img";
 import { CarInfoTypes } from "../types/types";
+import { base_url } from "../public/api/Services";
 export default function CarInfo({ data }: { data: CarInfoTypes | any }) {
-  const { body, name, src, type } = data;
-  
+  const {
+    body,
+    name,
+    src = `${base_url}/images/404.jpg`,
+    type,
+  } = data;
+
   return (
     <>
       <Header />
@@ -22,21 +28,4 @@ export default function CarInfo({ data }: { data: CarInfoTypes | any }) {
       </div>
     </>
   );
-}
-
-export async function getStaticProps() {
-  const res = await fetch(`http://localhost:3000/api/cars.json`);
-  const data = await res.json();
-  console.log("Rohit", data);
-
-  return { props: { data } };
-}
-
-export async function getStaticPaths() {
-  console.log("jha");
-
-  return {
-    paths: [],
-    fallback: "blocking",
-  };
 }
