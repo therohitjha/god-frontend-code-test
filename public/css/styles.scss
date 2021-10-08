@@ -89,6 +89,13 @@ html {
   display: none !important;
 }
 
+.select-filter {
+  margin-left: 1%;
+  padding: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
 @media (max-width: 505px) {
   .cars-container {
     padding: 0;
