@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Img from "./Img";
 import { CarTypes } from "../../types/types";
-import { base_url } from "../../public/api/Services";
 export default function CarInfo({
   data,
   width,
@@ -36,7 +35,7 @@ export default function CarInfo({
         <span className="modal-type">{modelType}</span>
       </div>
       <Img
-        src={`${base_url}${imageUrl}`}
+        src={`${imageUrl}`}
         alt={modelName}
         layout={layout}
         objectFit={objectFit}

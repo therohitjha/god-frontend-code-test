@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import { base_url } from "../../public/api/Services";
 import { CarTypes } from "../../types/types";
 import CarInfo from "./CarInfo";
 import Slider from "react-slick";
@@ -14,7 +13,7 @@ export default function Cars() {
   const ref = useRef<Slider>(null);
 
   useEffect(() => {
-    fetch(`${base_url}/api/cars.json`)
+    fetch(`/api/cars.json`)
       .then((res) => res.json())
       .then((res) => {
         setCars(res);
