@@ -6,14 +6,6 @@ export interface CarTypes {
   modelType: string;
 }
 
-export interface CarInfoTypes {
-  id?: string;
-  body: string;
-  name: string;
-  type: string;
-  src: string;
-}
-
 export interface ImageType {
   src: string;
   alt: string;

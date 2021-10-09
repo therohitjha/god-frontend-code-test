@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { base_url } from "../../public/api/Services";
 import { CarTypes } from "../../types/types";
-import Link from "next/link";
+import CarInfo from "./CarInfo";
 import Slider from "react-slick";
 import { settings } from "../../config/SliderConfig";
 import Header from "./Header";
@@ -72,73 +72,15 @@ export default function Cars() {
                 return e;
               })
               .map((e: CarTypes) => (
-                <div key={e.id}>
-                  <span className="body-type">{e.bodyType}</span>
-                  <div className="modal-type-name">
-                    <span className="modal-name">{e.modelName}</span>{" "}
-                    <span className="modal-type">{e.modelType}</span>
-                  </div>
-                  <Img
-                    src={`${base_url}${e.imageUrl}`}
-                    alt={e.modelName}
-                    layout="responsive"
-                    objectFit="contain"
-                    width={300}
-                    height={200}
-                  />
-                  <div className="learn-shop-link">
-                    <Link
-                      href={{
-                        pathname: `/learn/[id]`,
-                        query: {
-                          name: e.modelName,
-                          type: e.modelType,
-                          src: e.imageUrl,
-                          body: e.bodyType,
-                        },
-                      }}
-                      as={`/learn/${e.id}`}
-                      passHref
-                    >
-                      <div className="learn-link">
-                        <span>Learn </span>
-                        <span>
-                          <Img
-                            src="/images/chevron-small.svg"
-                            alt={"chevron_small"}
-                            width={10}
-                            height={10}
-                          />
-                        </span>
-                      </div>
-                    </Link>
-                    <Link
-                      href={{
-                        pathname: `/shop/[id]`,
-                        query: {
-                          name: e.modelName,
-                          type: e.modelType,
-                          src: e.imageUrl,
-                          body: e.bodyType,
-                        },
-                      }}
-                      as={`/shop/${e.id}`}
-                      passHref
-                    >
-                      <div className="shop-link">
-                        <span>Shop </span>
-                        <span>
-                          <Img
-                            src="/images/chevron-small.svg"
-                            alt={"chevron_small"}
-                            width={10}
-                            height={10}
-                          />
-                        </span>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
+                <CarInfo
+                  data={e}
+                  width={300}
+                  height={200}
+                  key={e.id}
+                  isSlider={true}
+                  layout="responsive"
+                  objectFit="contain"
+                />
               ))}
         </Slider>
         <div className="slider-button-container">

@@ -1,31 +1,105 @@
-import Header from "./Header";
+import Link from "next/link";
 import Img from "./Img";
-import { CarInfoTypes } from "../../types/types";
+import { CarTypes } from "../../types/types";
 import { base_url } from "../../public/api/Services";
-export default function CarInfo({ data }: { data: CarInfoTypes | any }) {
+export default function CarInfo({
+  data,
+  width,
+  height,
+  isSlider,
+  layout,
+  objectFit,
+}: {
+  data: CarTypes;
+  width: number;
+  height: number;
+  isSlider: boolean;
+  layout: "responsive" | undefined;
+  objectFit: "contain" | undefined;
+}) {
   const {
-    body,
-    name,
-    src = `${base_url}/images/404.jpg`,
-    type,
+    bodyType,
+    modelName,
+    imageUrl = `/images/404.jpg`,
+    modelType,
+    id,
   } = data;
-
   return (
-    <>
-      <Header />
-      <div className="car-info" style={{ padding: "25px" }}>
-        <span className="body-type" style={{ marginLeft: "0" }}>
-          {body}
-        </span>
-        <div
-          className="modal-type-name"
-          style={{ marginBottom: "1%", marginLeft: "0", marginTop: "0" }}
-        >
-          <span className="modal-name">{name}</span>{" "}
-          <span className="modal-type">{type}</span>
-        </div>
-        <Img src={src} width={800} height={500} alt={name} />
+    <div
+      style={{
+        textAlign: !isSlider ? "center" : undefined,
+      }}
+    >
+      <span className="body-type">{bodyType}</span>
+      <div className="modal-type-name">
+        <span className="modal-name">{modelName}</span>{" "}
+        <span className="modal-type">{modelType}</span>
       </div>
-    </>
+      <Img
+        src={`${base_url}${imageUrl}`}
+        alt={modelName}
+        layout={layout}
+        objectFit={objectFit}
+        width={width}
+        height={height}
+      />
+      <div
+        className="learn-shop-link"
+        style={{ marginTop: !isSlider ? "1%" : "5%" }}
+      >
+        <Link
+          href={{
+            pathname: `/learn/[id]`,
+            query: {
+              modelName,
+              modelType,
+              imageUrl,
+              bodyType,
+              id,
+            },
+          }}
+          as={`/learn/${id}`}
+          passHref
+        >
+          <div className="learn-link">
+            <span>LEARN </span>
+            <span>
+              <Img
+                src="/images/chevron-small.svg"
+                alt={"chevron_small"}
+                width={10}
+                height={10}
+              />
+            </span>
+          </div>
+        </Link>
+        <Link
+          href={{
+            pathname: `/shop/[id]`,
+            query: {
+              modelName,
+              modelType,
+              imageUrl,
+              bodyType,
+              id,
+            },
+          }}
+          as={`/shop/${id}`}
+          passHref
+        >
+          <div className="shop-link">
+            <span>SHOP </span>
+            <span>
+              <Img
+                src="/images/chevron-small.svg"
+                alt={"chevron_small"}
+                width={10}
+                height={10}
+              />
+            </span>
+          </div>
+        </Link>
+      </div>
+    </div>
   );
 }
