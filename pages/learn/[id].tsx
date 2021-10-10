@@ -4,16 +4,9 @@ import { CarTypes } from "../../types/types";
 import Header from "../../src/components/Header";
 import { useRouter } from "next/router";
 
-const Learn = () => {
-  
+const Learn = ({ data }: { data: CarTypes }) => {
   const router = useRouter();
-  const [state, setState] = useState<CarTypes>({
-    bodyType: "suv",
-    id: "xc90-recharge",
-    imageUrl: "/images/xc90_recharge.jpg",
-    modelName: "XC90 Recharge",
-    modelType: "plug-in hybrid",
-  });
+  const [state, setState] = useState<CarTypes>(data);
 
   useEffect(() => {
     (async () => {
@@ -27,18 +20,26 @@ const Learn = () => {
       }
     })();
   }, [router]);
+  console.log("rohit", state);
 
   return (
     <>
       <Header />
-      <CarInfo
-        data={state}
-        width={800}
-        height={500}
-        isSlider={false}
-      />
+      <CarInfo data={state} width={800} height={500} isSlider={false} />
     </>
   );
+};
+
+Learn.getInitialProps = async () => {
+  return {
+    data: {
+      bodyType: "suv",
+      id: "xc90-recharge",
+      imageUrl: "/images/xc90_recharge.jpg",
+      modelName: "XC90 Recharge",
+      modelType: "plug-in hybrid",
+    },
+  };
 };
 
 export default Learn;
