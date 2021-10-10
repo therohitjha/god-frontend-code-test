@@ -13,8 +13,8 @@ export default function CarInfo({
   width: number;
   height: number;
   isSlider: boolean;
-  layout: "responsive" | undefined;
-  objectFit: "contain" | undefined;
+  layout?: "responsive";
+  objectFit?: "contain";
 }) {
   const {
     bodyType,
