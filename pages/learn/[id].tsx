@@ -20,7 +20,6 @@ const Learn = ({ data }: { data: CarTypes }) => {
       }
     })();
   }, [router]);
-  console.log("rohit", state);
 
   return (
     <>
