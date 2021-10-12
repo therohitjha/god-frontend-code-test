@@ -31,7 +31,7 @@ export const settings = {
           slidesToScroll: 2,
           initialSlide: 2,
           dots: true,
-          infinite: false,
+          infinite: true,
         },
       },
       {
@@ -40,7 +40,7 @@ export const settings = {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: true,
-          infinite: false,
+          infinite: true,
           
         },
       },
